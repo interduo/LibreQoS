@@ -16,13 +16,7 @@ Go to your preferred install location, and clone the repo:
 git clone https://github.com/LibreQoE/LibreQoS.git
 ```
 
-> Now that this is in `main`, you no longer need to switch git branch. If you were previously on the `v1.4-pre-alpha-rust-integration` branch, please switch to main with `git checkout main; git pull`.
-
-Switch to the development branch:
-
-```
-git checkout v1.4-pre-alpha-rust-integration
-```
+> Now that this is in `main`, you no longer need to switch git branch. If you were previously on the `v1.4-pre-alpha-rust-integration` branch, please switch to main with `git fetch; git checkout main; git pull`.
 
 ## Install Dependencies from apt and pip
 
@@ -35,7 +29,7 @@ apt-get install -y python3-pip clang gcc gcc-multilib llvm libelf-dev git nano g
 Then you need to install some Python dependencies:
 
 ```
-python3 -m pip install ipaddress schedule influxdb-client requests flask flask_restful flask_httpauth waitress psutil binpacking graphviz
+python3 -m pip install -r requirements.txt
 ```
 
 ## Install the Rust development system
@@ -115,7 +109,7 @@ In the web browser, click `Reload LibreQoS` to setup your shaping rules.
 3. Go to console 1 (`Ctl-A, 1`) and stop `lqos_node_manager` with `ctrl+c`.
 4. Detach from `screen` with `Ctrl-A, D`.
 5. Change to your `LibreQoS` directory (e.g. `cd /opt/LibreQoS`)
-6. Update from Git: `git pull`
+6. Update from Git: `git fetch && git pull`
 7. Recompile: `./build-rust.sh`
 8. Resume screen with `screen -r`.
 9. Go to console 0 (`Ctrl-A, 0`) and run `sudo ./lqosd` to restart the bridge/manager.
